@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  name-server:
+    image: nome_da_docker_image
+    ports:
+      - 8761:8761
+    networks:
+      - jeff-network
+  zipkin:
+    image: openzipkin/zipkin:2.23.2
+    ports:
+      - 9411:9411
+    networks:
+      - jeff-network
+networks:
+  jeff-network:
+    driver: bridge
